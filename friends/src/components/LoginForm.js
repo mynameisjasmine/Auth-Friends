@@ -18,7 +18,7 @@ const LoginForm = props => {
      event.preventDefault();
 
  axiosWithAuth()
- .post(`/api/friends`, input)
+ .post(`/api/login`, input)
  .then(res => {
      localStorage.setItem('token', res.data.payload);
      props.history.push('/private')
@@ -29,6 +29,10 @@ const LoginForm = props => {
  if (localStorage.getItem('token')) {
     return <Redirect to='private' />
 }
+
+//  if(!input) {
+//  return <div>Loading...</div>
+//  }
 
  return (
 
