@@ -20,12 +20,19 @@ const getFriends = () => {
  getFriends()
 }, [])
 
-
+const deleteFriend = id => {
+   axiosWithAuth().delete(`/api/friends/${id}`)
+   .then(res => {
+     console.log(res.data);
+     setFriends(res.data); 
+   })
+   .catch(err => console.log(err.response))
+}
 
     return (
     <div>
     <AddFriends setFriends={setFriends}/>
-   {friends.map(items => <Friends key={items.id} items={items}/>)}
+   {friends.map(items => <Friends key={items.id} items={items} deleteFriend={deleteFriend}/>)}
     </div>
 
     )

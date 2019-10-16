@@ -30,18 +30,21 @@ const [input, setInput] = useState({name: '', age: '', email: ''})
      type="text"
      name="name"
      value={input.name}
+     placeholder="...add name"
      onChange={handleChange}
    />
    <input
     type="number"
     name="age"
     value={input.age}
+    placeholder="...add age"
     onChange={handleChange}
    />
    <input
     type="email"
     name="email"
     value={input.email}
+    placeholder="...add email"
     onChange={handleChange}
    />
    <button type="submit">Add</button>
